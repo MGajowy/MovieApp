@@ -1,15 +1,13 @@
-
-
 module.exports = (sequelize, Sequelize) => {
-    const Movie = sequelize.define('movie', {
-        title: {
+    const Director = sequelize.define('director', {
+        name: {
             type: Sequelize.STRING
         },
-        description: {
+        surname: {
             type: Sequelize.STRING
         }
+
     })
     
-    return Movie
+    return Director
 }
-
