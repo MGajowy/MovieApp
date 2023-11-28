@@ -27,12 +27,12 @@ exports.create = (req, res) => {
         })
 }
 
-// findAll
+
 exports.findAll = (req, res) => {
     const surname = req.query.surname
     var condition = surname ? { surname: { [Op.like]: `%${surname}%` } } : null
 
-    Director.findAll({ where: condition })
+    Director.findAll({include: ["movies"], where: condition })
         .then(data => {
             res.send(data)
         })
@@ -43,6 +43,7 @@ exports.findAll = (req, res) => {
             })
         })
 }
+
 
 // findOne
 exports.findOne = (req, res) => {

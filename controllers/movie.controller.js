@@ -1,6 +1,5 @@
 const db = require('../models')
 const Movie = db.movie
-const Director = db.director
 const Op = db.Sequelize.Op
 
 exports.create = (req, res) => {
@@ -56,7 +55,7 @@ exports.findOne = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message: 'Błąd. Nie znaleziono moviey o id =' + id
+                message: 'Błąd. Nie znaleziono filmu o id =' + id
             })
         })
 }
