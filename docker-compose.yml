@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  movieNodeApp:
+    container_name: movie_backend
+    image: ghcr.io/mgajowy/movie-backend:1.0
+    build: ./
+    ports:
+      - "8020:8020"
+    depends_on:
+      - postgresqldb
+      - movieFrontend
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresqldb:5432/
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+  postgresqldb:
+    container_name: postgresDB
+    image: postgres:9.6
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+  movieFrontend:
+    container_name: movie_frontend
+    image: ghcr.io/mgajowy/movie-frontend:1.0
+    ports:
+      - "8080:80"
