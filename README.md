@@ -3,8 +3,8 @@
 ## Instrukcja uruchomienia:
 
 1. Pobierz obrazy docker: 
-docker pull ghcr.io/mgajowy/movie-backend:1.0
-docker pull ghcr.io/mgajowy/movie-frontend:1.0
+- docker pull ghcr.io/mgajowy/movie-backend:1.0
+- docker pull ghcr.io/mgajowy/movie-frontend:1.0
 
 2. Po pobraniu repozytorium: MGajowy/MovieApp uruchom wiersz poleceń w ścieżce pobranego repozytorium 
     i uruchom polecenie : docker compose up
